@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Harshit-Aditya-s-workspace-eqjlv2.us-east-1.xata.sh/db/screen-recorder-application",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}
