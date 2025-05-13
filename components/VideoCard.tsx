@@ -33,6 +33,7 @@ function VideoCard({
               height={34}
               className="rounded-full aspect-square"
             />
+
             <figcaption>
               <h3>{username}</h3>
               <p>{visibility}</p>
