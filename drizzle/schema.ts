@@ -57,13 +57,6 @@ export const verification = pgTable("verification", {
   updatedAt: timestamp("updated_at"),
 });
 
-export const schema = {
-  user,
-  session,
-  account,
-  verification,
-};
-
 export const videos = pgTable("videos", {
   id: uuid("id").primaryKey().defaultRandom().unique(),
   title: text("title").notNull(),
@@ -80,3 +73,11 @@ export const videos = pgTable("videos", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });
+
+export const schema = {
+  user,
+  session,
+  account,
+  verification,
+  videos,
+};

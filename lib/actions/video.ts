@@ -96,35 +96,66 @@ export const getThumbnailUploadUrl = withErrorHandling(
   }
 );
 
-export const saveVideoDetails = withErrorHandling(
-  async (videoDetails: VideoDetails) => {
-    const userId = await getSessionUserId();
-    await validateWithArcjet(userId);
-    await apiFetch(
-      `${VIDEO_STREAM_BASE_URL}/${BUNNY_LIBRARY_ID}/videos/${videoDetails.videoId}`,
-      {
-        method: "POST",
-        bunnyType: "stream",
-        body: {
-          title: videoDetails.title,
-          description: videoDetails.description,
-        },
-      }
-    );
+// export const saveVideoDetails = withErrorHandling(
+//   async (videoDetails: VideoDetails) => {
+//     const userId = await getSessionUserId();
+//     await validateWithArcjet(userId);
+//     await apiFetch(
+//       `${VIDEO_STREAM_BASE_URL}/${BUNNY_LIBRARY_ID}/videos/${videoDetails.videoId}`,
+//       {
+//         method: "POST",
+//         bunnyType: "stream",
+//         body: {
+//           title: videoDetails.title,
+//           description: videoDetails.description,
+//         },
+//       }
+//     );
 
-    const now = new Date();
-    await db.insert(videos).values({
-      ...videoDetails,
-      videoUrl: `${BUNNY.EMBED_URL}/${BUNNY_LIBRARY_ID}/${videoDetails.videoId}`,
-      userId,
-      createdAt: now,
-      updatedAt: now,
-    });
+//     const now = new Date();
+//     await db.insert(videos).values({
+//       ...videoDetails,
+//       videoUrl: `${BUNNY.EMBED_URL}/${BUNNY_LIBRARY_ID}/${videoDetails.videoId}`,
+//       userId,
+//       createdAt: now,
+//       updatedAt: now,
+//     });
 
-    revalidatePaths(["/"]);
-    return { videoId: videoDetails.videoId };
+//     revalidatePaths(["/"]);
+//     return { videoId: videoDetails.videoId };
+//   }
+// );
+
+export const saveVideoDetails = async (videoDetails: VideoDetails) => {
+  console.log("📥 saveVideoDetails called with:", videoDetails);
+  const userId = await getSessionUserId();
+  console.log("🔒 session userId:", userId);
+
+  // skip Arcjet / API fetch for now to isolate
+  // await validateWithArcjet(userId);
+  // await apiFetch(...)
+
+  const now = new Date();
+  const insertPayload = {
+    ...videoDetails,
+    videoUrl: `${BUNNY.EMBED_URL}/${BUNNY_LIBRARY_ID}/${videoDetails.videoId}`,
+    userId,
+    createdAt: now,
+    updatedAt: now,
+  };
+  console.log("📝 about to insert into videos:", insertPayload);
+
+  try {
+    const result = await db.insert(videos).values(insertPayload);
+    console.log("✅ Insert succeeded, result:", result);
+  } catch (err) {
+    console.error("❌ Insert failed:", err);
+    throw err; // so you see the real error in your UI console/logs
   }
-);
+
+  revalidatePaths(["/"]);
+  return { videoId: videoDetails.videoId };
+};
 
 export const getAllVideos = withErrorHandling(
   async (

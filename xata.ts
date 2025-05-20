@@ -3,7 +3,7 @@ import { buildClient } from "@xata.io/client";
 import type { BaseClientOptions } from "@xata.io/client";
 
 // const tables = [] as const;
-
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export type DatabaseSchema = {};
 
 const DatabaseClient = buildClient();

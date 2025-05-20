@@ -2,7 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import React from "react";
 
 function Navbar() {
@@ -20,7 +20,7 @@ function Navbar() {
             width={32}
             height={32}
           />
-          <h2>Screen Recording app</h2>
+          <h1>ScreenKit</h1>
         </Link>
         {user && (
           <figure>
@@ -33,7 +33,18 @@ function Navbar() {
                 className="rounded-full aspect-square"
               />
             </button>
-            <button className="cursor-pointer">
+            <button
+              onClick={async () => {
+                return await authClient.signOut({
+                  fetchOptions: {
+                    onSuccess: () => {
+                      redirect("/sign-in");
+                    },
+                  },
+                });
+              }}
+              className="cursor-pointer"
+            >
               <Image
                 src="/assets/icons/logout.svg"
                 alt="logout"

@@ -21,19 +21,20 @@ async function Page({ params, searchParams }: ParamsWithSearch) {
         userImg={user?.image ?? ""}
       />
 
-      {/* {dummyCards.map((card) => (
-          <VideoCard key={card.id} {...card} />
-        ))} */}
-
       {videos?.length > 0 ? (
         <section className="video-grid">
           {videos.map(({ video, user }) => (
             <VideoCard
               key={video.id}
-              {...video}
+              id={video.videoId}
+              title={video.title}
               thumbnail={video.thumbnailUrl}
-              userImg={user?.image || ""}
-              username={user?.name || ""}
+              createdAt={video.createdAt}
+              userImg={user.image ?? ""}
+              username={user.name ?? "Guest"}
+              views={video.views}
+              visibility={video.visibility}
+              duration={video.duration}
             />
           ))}
         </section>
@@ -44,8 +45,6 @@ async function Page({ params, searchParams }: ParamsWithSearch) {
           description="Videos will show up once you upload them."
         />
       )}
-
-      {/* <h1 className="text-2xl font-karla">PROFILE ID : {id}</h1> */}
     </div>
   );
 }

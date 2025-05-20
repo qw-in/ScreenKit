@@ -18,7 +18,7 @@ function Page() {
             width={32}
             height={32}
           />
-          <h1>Screen Recorder App</h1>
+          <h1>ScreenKit</h1>
         </Link>
         <div className="description">
           <section>
@@ -34,26 +34,27 @@ function Page() {
               ))}
             </figure>
             <p>
-              I love this screen recorder! It's so easy to use and the quality
-              is amazing. I highly recommend it to anyone who needs to record
-              their screen.
+              This screen recorder is a game-changer! Incredibly user-friendly
+              with crystal-clear recording quality. I’d highly recommend it to
+              anyone looking for a reliable way to capture their screen
+              effortlessly.
             </p>
             <article>
               <Image
-                src="/assets/images/jason.png"
+                src="/assets/images/Pedro.jpg"
                 alt="json"
                 width={64}
                 height={64}
                 className="rounded-full"
               />
               <div>
-                <h2>Json Statham</h2>
-                <p>Staff Enginner, Oxx Technologies</p>
+                <h2>Pedro Pascal</h2>
+                <p>Founding Enginner, Illuminati Technologies</p>
               </div>
             </article>
           </section>
         </div>
-        <p> Screen Recorder App {new Date().getFullYear()}</p>
+        <p> ScreenKit {new Date().getFullYear()}</p>
       </aside>
       <aside className="google-sign-in">
         <section>
@@ -64,11 +65,11 @@ function Page() {
               width={40}
               height={40}
             />
-            <h1>Screen Recorder App</h1>
+            <h1>ScreenKit</h1>
           </Link>
           <p>
-            Create and share you very first <span> Screen Recorder App</span> in
-            no time !
+            Build and launch your very own <span> screen recording</span> in no
+            time – quick, easy, and hassle-free
           </p>
           <button onClick={handleSignIn}>
             <Image

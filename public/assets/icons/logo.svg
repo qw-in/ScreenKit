@@ -1,0 +1,14 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <!-- Screen background filled -->
+  <rect x="10" y="20" width="108" height="78" rx="8" ry="8" fill="#64e2b7" stroke="#64e2b7" stroke-width="6"/>
+
+  <!-- Recording dot with slight contrast -->
+  <circle cx="106" cy="30" r="8" fill="white"/>
+
+  <!-- Play triangle with white color for contrast -->
+  <polygon points="48,50 72,64 48,78" fill="white"/>
+
+  <!-- Optional subtle shadow for depth -->
+  <rect x="10" y="20" width="108" height="78" rx="8" ry="8" stroke="black" stroke-opacity="0.05" stroke-width="2"/>
+</svg>

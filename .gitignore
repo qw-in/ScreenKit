@@ -2,9 +2,7 @@
 
 # dependencies
 /node_modules
-/constants
-/fonts
-/public
+/extrafiles
 /.pnp
 .pnp.*
 .yarn/*

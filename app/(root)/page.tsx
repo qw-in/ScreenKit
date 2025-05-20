@@ -1,7 +1,8 @@
 import EmptyComponent from "@/components/EmptyComponent";
 import Header from "@/components/Header";
+import Pagination from "@/components/Pagination";
 import VideoCard from "@/components/VideoCard";
-import { dummyCards } from "@/constants";
+
 import { getAllVideos } from "@/lib/actions/video";
 import React from "react";
 
@@ -16,20 +17,21 @@ const Page = async ({ searchParams }: SearchParams) => {
 
   return (
     <main className="wrapper page">
-      <Header title="All videos" subHeader="Public Library" />
-      {/* <section className="video-grid"> */}
-      {/* {dummyCards.map((card) => (
-          <VideoCard key={card.id} {...card} />
-        ))} */}
+      <Header title="All videos" subHeader="Public Library" />\{" "}
       {videos?.length > 0 ? (
         <section className="video-grid">
           {videos.map(({ video, user }) => (
             <VideoCard
               key={video.id}
-              {...video}
+              id={video.videoId}
+              title={video.title}
               thumbnail={video.thumbnailUrl}
-              userImg={user?.image || ""}
-              username={user?.name || ""}
+              createdAt={video.createdAt}
+              userImg={user?.image ?? ""}
+              username={user?.name ?? "Guest"}
+              views={video.views}
+              visibility={video.visibility}
+              duration={video.duration}
             />
           ))}
         </section>
@@ -40,18 +42,14 @@ const Page = async ({ searchParams }: SearchParams) => {
           description="Looks like you haven't recorded any videos yet."
         />
       )}
-      {/* </section> */}
-      {/* <VideoCard
-        id="1"
-        title="Screen Recorder Message"
-        thumbnail="/assets/samples/thumbnail (1).png"
-        createdAt={new Date("2023-10-01 06:00:00")}
-        duration={146}
-        userImg="/assets/images/jason.png"
-        username="Jason"
-        views={10}
-        visibility="public"
-      /> */}
+      {pagination?.totalPages > 1 && (
+        <Pagination
+          currentPage={pagination.currentPage}
+          totalPages={pagination.totalPages}
+          queryString={query}
+          filterString={filter}
+        />
+      )}
     </main>
   );
 };
