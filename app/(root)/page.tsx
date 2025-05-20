@@ -17,7 +17,7 @@ const Page = async ({ searchParams }: SearchParams) => {
 
   return (
     <main className="wrapper page">
-      <Header title="All videos" subHeader="Public Library" />\{" "}
+      <Header title="All videos" subHeader="Public Library" />{" "}
       {videos?.length > 0 ? (
         <section className="video-grid">
           {videos.map(({ video, user }) => (
