@@ -11,14 +11,8 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "screen-recording-application.b-cdn.net",
         protocol: "https",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        hostname: "lh3.googleusercontent.com",
-        protocol: "https",
+        hostname: "*",
         port: "",
         pathname: "/**",
       },
@@ -27,3 +21,16 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// {
+//   hostname: "screen-recording-application.b-cdn.net",
+//   protocol: "https",
+//   port: "",
+//   pathname: "/**",
+// },
+// {
+//   hostname: "lh3.googleusercontent.com",
+//   protocol: "https",
+//   port: "",
+//   pathname: "/**",
+// },
