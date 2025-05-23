@@ -9,8 +9,8 @@ const geistKarla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Screen recorder app",
-  description: "A Screen Sharing App",
+  title: "ScreenKit",
+  description: "A Screen recorder app",
   icons: {
     icon: "/assets/icons/logo.svg",
   },
