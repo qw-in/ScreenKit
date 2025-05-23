@@ -51,6 +51,8 @@ The following clips have been used in this project for demonstration and educati
 ![Screenshot (1323)](https://github.com/user-attachments/assets/4d6540c5-a261-4fc6-8dcc-bba5b558b4ed)
 ![Screenshot (1324)](https://github.com/user-attachments/assets/644c1a70-aacb-4c65-b839-0c8175e499e5)
 ![Screenshot (1325)](https://github.com/user-attachments/assets/6b3d425b-d586-42f6-900d-b794d2e7a586)
+![Screenshot (1328)](https://github.com/user-attachments/assets/91903326-fc56-401c-bab6-907b0683d832)
+
 
 ## Loved the project 💖? 
   
