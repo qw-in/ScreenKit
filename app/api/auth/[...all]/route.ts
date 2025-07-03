@@ -60,6 +60,7 @@ export const POST = async (req: NextRequest) => {
     if (decision.reason.isShield()) {
       throw new Error("Shield is triggered");
     }
+    throw new Error("Forbidden");
   }
   return authHandlers.POST(req);
 };
